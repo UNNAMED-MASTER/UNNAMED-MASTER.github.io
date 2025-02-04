@@ -4,7 +4,7 @@ title:      Markdown的使用
 subtitle:   Markdown语法
 date:       2025-02-02
 author:     UNNAMED-MASTER
-header-img: img/post-bg-article.jpg
+header-img: img/post-bg-universe.jpg
 catalog: true
 tags:
     - Markdown

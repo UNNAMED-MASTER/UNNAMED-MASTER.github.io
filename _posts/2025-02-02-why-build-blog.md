@@ -4,7 +4,7 @@ title:      我为什么要建立自己的博客？
 subtitle:   分享的乐趣
 date:       2025-02-02
 author:     UNNAMED-MASTER
-header-img: img/post-bg-article.jpg
+header-img: img/post-bg-universe.jpg
 catalog: true
 tags:
     - Blog
