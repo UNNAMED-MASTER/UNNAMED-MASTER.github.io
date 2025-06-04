@@ -1,15 +1,15 @@
 <!DOCTYPE html>
 <html lang="en">
-
+<!--Jekyll 的 Liquid 模板语言语法，用于将 head.html 文件的内容插入到当前位置。通常，head.html 包含页面的元数据（如字符编码、页面标题、样式表链接等）-->
 {% include head.html %}
 
-<!-- hack iOS CSS :active style -->
+<!-- hack iOS CSS :active style ontouchstart="" 是一个用于解决 iOS 设备上 CSS :active 样式问题的 hack。在 iOS 设备上，某些元素的 :active 样式默认不会触发，通过添加这个空的 ontouchstart 事件处理程序，可以让 :active 样式正常工作-->
 <body ontouchstart="">
-
+<!--Jekyll 的 Liquid 语法，将 nav.html 文件的内容插入到当前位置。nav.html 通常包含网站的导航栏，用于展示网站的主要菜单-->
     {% include nav.html %}
-
+<!-- Jekyll 的 Liquid 语法，用于插入继承这个模板的页面的具体内容。也就是说，当其他页面使用这个模板时，它们的内容会被替换到 {{ content }} 这个位置-->
     {{ content }}
-
+<!--将 footer.html 文件的内容插入到当前位置。footer.html 通常包含网站的页脚信息，如版权声明、联系方式等。-->
     {% include footer.html %}
 
 

@@ -1,4 +1,5 @@
 ---
+<!--使用名为 default 的布局模板-->
 layout: default
 ---
 
@@ -6,7 +7,7 @@ layout: default
 <!-- <img src="/img/apple-touch-icon.png" width="0" height="0"> -->
 <!-- <img src="{{ site.baseurl }}/{% if page.header-img %}{{ page.header-img }}{% else %}{{ site.header-img }}{% endif %}" width="0" height="0"> -->
 
-<!-- Post Header -->
+<!-- Post Header 用 Liquid 的 include 标签引入 intro-header.html 文件，并传递 type='keynote' 参数，用于展示主题演讲的头部信息-->
 {% include intro-header.html type='keynote' %}
 
 
@@ -63,8 +64,8 @@ layout: default
                 <!-- Featured Tags -->
                 {% include featured-tags.html %}
 
-                <!-- Friends Blog -->
-                {% include friends.html %}
+                <!-- Units Blog -->
+                {% include units.html %}
 
             </div>
         </div>
@@ -145,6 +146,10 @@ layout: default
             font-size: 1.1em;
             margin-top : -0.1em;
         }
+    }
+     /* 设置标签标题颜色为蓝色 */
+    .sidebar-container h5 {
+        color: #00b3ff;
     }
 </style>
 {% endif %}

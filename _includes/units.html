@@ -1,0 +1,9 @@
+{% if site.friends %}
+<hr>
+<h5>UNITS</h5>
+<ul class="list-inline">
+  {% for units in site.units %}
+  <li><a href="{{units.href}}">{{unit.title}}</a></li>
+  {% endfor %}
+</ul>
+{% endif %}
