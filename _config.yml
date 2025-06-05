@@ -90,7 +90,7 @@ service-worker: true
 
 
 # Unit
-Unit: [
+Units: [
 {title: "江西理工大学",href: "https://www.jxust.edu.cn/"}
 ]
 
