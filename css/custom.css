@@ -1,0 +1,14 @@
+ .sidebar-container .short-about img{
+   width: 90px;
+   height: 90px;
+   display: block;
+   margin: 0 auto 20px;
+   border-radius: 50%;
+   object-fit: cover;
+   animation: sidebar-avatar-rotate 20s linear infinite;
+ }
+
+ @keyframes sidebar-avatar-rotate{
+   0% { transform: rotate(0deg); }
+   100% { transform: rotate(360deg); }
+ }
