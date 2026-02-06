@@ -36,10 +36,13 @@
   border-color: #0085a1;
 }
 .sidebar-container .short-about img {
-  width: 80%;
+  width: 90px;
+  height: 90px;
   display: block;
-  border-radius: 5px;
-  margin-bottom: 20px;
+  margin: 0 auto 20px;
+  border-radius: 50%;
+  object-fit: cover;
+  animation: sidebar-avatar-rotate 20s linear infinite;
 }
 .sidebar-container .short-about p {
   margin-top: 0px;
@@ -47,6 +50,14 @@
 }
 .sidebar-container .short-about .list-inline > li {
   padding-left: 0px;
+}
+@keyframes sidebar-avatar-rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
 }
 .catalog-container {
   padding: 0px;
