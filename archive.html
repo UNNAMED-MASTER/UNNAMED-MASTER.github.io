@@ -16,18 +16,23 @@ https://github.com/kitian616/jekyll-TeXt-theme
 <div class="container">
     <div class="row">
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-            {%- assign _archive_posts = site.posts | where_exp: "item", "item.tags contains '日记' == false" | where_exp: "item", "item.tags contains 'diary' == false" -%}
+            {%- assign _archive_count = 0 -%}
+            {%- for _p in site.posts -%}
+              {%- unless _p.tags contains '日记' or _p.tags contains 'diary' -%}
+                {%- assign _archive_count = _archive_count | plus: 1 -%}
+              {%- endunless -%}
+            {%- endfor -%}
             <!-- Tags (as filter)，不含日记/Diary，日记请用右上角 Diary 入口 -->
             <div id='tag_cloud' class="tags tags-sup js-tags">
                 <a class="tag-button--all" data-encode="">
                     Show All
-                    <sup>{{ _archive_posts.size }}</sup>
+                    <sup>{{ _archive_count }}</sup>
                 </a>
 
                 {% capture tags %}
                 {% for tag in site.tags %}
                 {% if tag[0] != '日记' and tag[0] != 'diary' %}
-                <a data-sort="{{ _archive_posts.size | minus: tag[1].size | prepend: '0000' | slice: -4, 4 }}"
+                <a data-sort="{{ _archive_count | minus: tag[1].size | prepend: '0000' | slice: -4, 4 }}"
                    data-encode="{{ tag[0] | strip | url_encode }}"
                    class="tag-button"
                    title="{{ tag[0] }}" rel="{{ tag[1].size }}">
@@ -42,12 +47,10 @@ https://github.com/kitian616/jekyll-TeXt-theme
 
             <!-- Article List（仅非日记文章） -->
             <div class="mini-post-list js-result d-none">
-                {%- assign _sorted_list = _archive_posts -%}
-                {%- assign _sorted_list = _sorted_list | sort: 'date' -%}
-                {%- assign _sorted_list = _sorted_list | reverse -%}
-
+                {%- assign _sorted_list = site.posts | sort: 'date' | reverse -%}
 
                 {%- for _article in _sorted_list -%}
+                {%- unless _article.tags contains '日记' or _article.tags contains 'diary' -%}
                 {%- assign _tags = '' -%}
                 {%- for _tag in _article.tags -%}
                 {%- assign _tag_encode = _tag | strip | url_encode -%}
@@ -82,6 +85,7 @@ https://github.com/kitian616/jekyll-TeXt-theme
                         </a>
                         <hr>
                     </div>
+                {%- endunless -%}
                     {% endfor %}
             </div>
         </div>
