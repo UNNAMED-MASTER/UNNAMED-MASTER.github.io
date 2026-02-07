@@ -24,7 +24,7 @@
                         <a href="{{ site.baseurl }}/">Home</a>
                     </li>
                     {% for p in site.pages %}
-                    {% if p.title and p.hide-in-nav != true and p.title != 'Diary' %}
+                    {% if p.title and p.hide-in-nav != true %}
                     {% unless p.path contains 'flyingwzb.github.io-master/' %}
                     <li>
                         <a href="{{ p.url | prepend: site.baseurl }}">{{ p.title }}</a>
@@ -32,9 +32,6 @@
                     {% endunless %}
                     {% endif %}
                     {% endfor %}
-                    <li>
-                        <a href="{{ site.baseurl }}/diary/">Diary</a>
-                    </li>
                 </ul>
             </div>
         </div>
