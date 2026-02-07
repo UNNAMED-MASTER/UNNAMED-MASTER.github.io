@@ -18,7 +18,9 @@ https://github.com/kitian616/jekyll-TeXt-theme
         <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
             {%- assign _archive_count = 0 -%}
             {%- for _p in site.posts -%}
-              {%- unless _p.tags contains '日记' or _p.tags contains 'diary' -%}
+              {%- assign _is_d = false -%}
+              {%- for _t in _p.tags -%}{% if _t | strip == '日记' or _t | strip == 'diary' %}{%- assign _is_d = true -%}{% endif %}{%- endfor -%}
+              {%- unless _is_d -%}
                 {%- assign _archive_count = _archive_count | plus: 1 -%}
               {%- endunless -%}
             {%- endfor -%}
@@ -50,7 +52,9 @@ https://github.com/kitian616/jekyll-TeXt-theme
                 {%- assign _sorted_list = site.posts | sort: 'date' | reverse -%}
 
                 {%- for _article in _sorted_list -%}
-                {%- unless _article.tags contains '日记' or _article.tags contains 'diary' -%}
+                {%- assign _is_diary = false -%}
+                {%- for _t in _article.tags -%}{% if _t | strip == '日记' or _t | strip == 'diary' %}{%- assign _is_diary = true -%}{% endif %}{%- endfor -%}
+                {%- unless _is_diary -%}
                 {%- assign _tags = '' -%}
                 {%- for _tag in _article.tags -%}
                 {%- assign _tag_encode = _tag | strip | url_encode -%}
